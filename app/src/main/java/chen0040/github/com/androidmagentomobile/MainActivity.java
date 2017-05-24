@@ -2,9 +2,8 @@ package chen0040.github.com.androidmagentomobile;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,16 +20,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                MainActivity.this.goToAdminPage();
+                MainActivity.this.toggleMainPage();
             }
         });
     }
 
-    private void goToAdminPage(){
+    private void toggleMainPage(){
         MainActivityFragment fragment = (MainActivityFragment)
                 getSupportFragmentManager().findFragmentById(R.id.fragment);
 
-        fragment.goToAdmin();
+        fragment.toggleMainPage();
 
     }
 
@@ -54,5 +53,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    MainActivityFragment fragment = (MainActivityFragment)
+                            getSupportFragmentManager().findFragmentById(R.id.fragment);
+                    if (fragment.canGoBack()) {
+                        fragment.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
