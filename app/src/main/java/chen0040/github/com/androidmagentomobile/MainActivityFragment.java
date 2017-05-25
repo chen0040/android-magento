@@ -24,8 +24,7 @@ import java.util.regex.Pattern;
 public class MainActivityFragment extends Fragment {
 
     private static final String TAG = "MainActivityFragment";
-    private static final String HOME_URL = "http://j-clef-web-01.japaneast.cloudapp.azure.com";
-    private boolean mainPageHome = true;
+    private static final String HOME_URL = "http://magento2-demo.nexcess.net";
 
     private WebView webView;
 
@@ -44,16 +43,7 @@ public class MainActivityFragment extends Fragment {
             private Pattern pattern = Pattern.compile(".*/id/(\\d+)/cat_id/.*");
             private int productId;
 
-            private List<String> modelIds = Arrays.asList("1d5285f2e0fd4211a27c8042496d5959",
-                    "311d052a9f034ba8bce55a1a8296b6f9",
-                    "66e4ced42d3d4a9f8598241de7491783",
-                    "aba23531911c45439067a6e0aaccad07",
-                    "8e75372b3ace4717b85fe6eb224c9550",
-                    "89c45d1d5dfa4876ba353c86007084b8",
-                    "f2129918d55646dbbaa8268367fa242e",
-                    "e215b6fd60ca48ddabaa77373f35176c",
-                    "66b4d99c026343ce8774e8a3b521246d"
-            );
+
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -83,13 +73,7 @@ public class MainActivityFragment extends Fragment {
                         System.out.println("product id: " + productId);
                     }
 
-                    Snackbar.make(wView, "Open 3D model for Product with ProductId = " + productId, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
-                    String id = modelIds.get(productId % modelIds.size());
-
-
-                    String mockUrl = "https://sketchfab.com/models/".concat(id).concat("/embed");
-                    wView.loadUrl(mockUrl);
+                    Snackbar.make(wView, "Send Email for Product with ProductId = " + productId, Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 } else {
                     wView.loadUrl(url);
                 }
@@ -101,16 +85,9 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void toggleMainPage(){
-        if(mainPageHome) {
-            Log.v(TAG, "go to admin");
-            Snackbar.make(webView, "Navigating to Administration", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            webView.loadUrl(HOME_URL + "/admin");
-        } else {
-            Log.v(TAG, "go to home");
-            Snackbar.make(webView, "Navigating to Home", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            webView.loadUrl(HOME_URL);
-        }
-        mainPageHome = !mainPageHome;
+        Log.v(TAG, "go to home");
+        Snackbar.make(webView, "Navigating to Home", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        webView.loadUrl(HOME_URL);
 
     }
 
