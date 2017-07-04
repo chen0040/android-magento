@@ -18,13 +18,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import chen0040.github.com.androidmagentomobile.modules.MagentoModule;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
 
     private static final String TAG = "MainActivityFragment";
-    private static final String HOME_URL = "http://magento2-demo.nexcess.net";
+
 
     private WebView webView;
 
@@ -80,14 +82,14 @@ public class MainActivityFragment extends Fragment {
                 return true;
             }
         });
-        webView.loadUrl(HOME_URL);
+        webView.loadUrl(MagentoModule.HOME_URL);
         return mainView;
     }
 
     public void toggleMainPage(){
         Log.v(TAG, "go to home");
         Snackbar.make(webView, "Navigating to Home", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-        webView.loadUrl(HOME_URL);
+        webView.loadUrl(MagentoModule.HOME_URL);
 
     }
 

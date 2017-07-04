@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import chen0040.github.com.androidmagentomobile.modules.MagentoModule;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.toggleMainPage();
             }
         });
+
+        MagentoModule.getInstance().loginDemoClient();
     }
 
     private void toggleMainPage(){
