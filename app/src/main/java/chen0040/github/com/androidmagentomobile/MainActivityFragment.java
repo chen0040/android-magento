@@ -12,12 +12,18 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ListAdapter;
 
+import com.etsy.android.grid.StaggeredGridView;
+import com.github.chen0040.magento.models.Product;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import chen0040.github.com.androidmagentomobile.components.ProductListAdapter;
 import chen0040.github.com.androidmagentomobile.modules.MagentoModule;
 
 /**
@@ -37,6 +43,24 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mainView = inflater.inflate(R.layout.fragment_main, container, false);
+
+
+        setupWebView(mainView);
+
+        setupGridView(mainView);
+        return mainView;
+    }
+
+    private void setupGridView(View mainView) {
+        ListAdapter adapter = new ProductListAdapter(this.getContext(), new ArrayList<>());
+
+        StaggeredGridView gridView = (StaggeredGridView) mainView.findViewById(R.id.grid_view);
+
+        gridView.setAdapter(adapter);
+    }
+
+    private void setupWebView(View mainView){
+
         webView = (WebView) mainView.findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient(){
@@ -83,8 +107,8 @@ public class MainActivityFragment extends Fragment {
             }
         });
         webView.loadUrl(MagentoModule.HOME_URL);
-        return mainView;
     }
+
 
     public void toggleMainPage(){
         Log.v(TAG, "go to home");

@@ -1,5 +1,7 @@
 package chen0040.github.com.androidmagentomobile.modules;
 
+import android.util.Log;
+
 import com.github.chen0040.androidmagentoclient.AndroidMagentoClient;
 
 /**
@@ -7,6 +9,8 @@ import com.github.chen0040.androidmagentoclient.AndroidMagentoClient;
  */
 
 public class MagentoModule {
+    private static final String TAG = "MagentoModule";
+
     public static final String HOME_URL = "http://magento2-demo.nexcess.net";
     private static final String USERNAME = "roni_cost@example.com";
     private static final String PASSWORD = "roni_cost3@example.com";
@@ -28,7 +32,9 @@ public class MagentoModule {
         return client;
     }
 
-    public void loginDemoClient(){
-        client.loginAsClient(USERNAME, PASSWORD);
+    public String loginDemoClient(){
+        String token = client.loginAsClient(USERNAME, PASSWORD);
+        Log.i(TAG, "login as client: " + token);
+        return token;
     }
 }

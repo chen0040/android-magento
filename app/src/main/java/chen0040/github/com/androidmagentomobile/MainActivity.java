@@ -3,6 +3,7 @@ package chen0040.github.com.androidmagentomobile;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MagentoModule.getInstance().loginDemoClient();
+        String token = MagentoModule.getInstance().loginDemoClient();
+
+
     }
 
     private void toggleMainPage(){
