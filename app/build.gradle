@@ -37,7 +37,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.github.chen0040:android-magento-client:1.0.1'
-    compile 'com.etsy.android.grid:library:1.0.5'
     // Unit
     testCompile 'junit:junit:4.12'
 }

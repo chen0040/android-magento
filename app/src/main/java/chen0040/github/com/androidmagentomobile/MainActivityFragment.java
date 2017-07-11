@@ -1,7 +1,6 @@
 package chen0040.github.com.androidmagentomobile;
 
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,21 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ListAdapter;
-
-import com.etsy.android.grid.StaggeredGridView;
-import com.github.chen0040.magento.models.Product;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import chen0040.github.com.androidmagentomobile.components.ProductListAdapter;
 import chen0040.github.com.androidmagentomobile.modules.MagentoModule;
 
 /**
@@ -52,11 +41,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void setupGridView(View mainView) {
-        ListAdapter adapter = new ProductListAdapter(this.getContext(), new ArrayList<>());
 
-        StaggeredGridView gridView = (StaggeredGridView) mainView.findViewById(R.id.grid_view);
-
-        gridView.setAdapter(adapter);
     }
 
     private void setupWebView(View mainView){

@@ -11,9 +11,9 @@ import com.github.chen0040.androidmagentoclient.AndroidMagentoClient;
 public class MagentoModule {
     private static final String TAG = "MagentoModule";
 
-    public static final String HOME_URL = "http://magento2-demo.nexcess.net";
-    private static final String USERNAME = "roni_cost@example.com";
-    private static final String PASSWORD = "roni_cost3@example.com";
+    public static final String HOME_URL = "http://j-clef-web-01.japaneast.cloudapp.azure.com/";
+    public static final String USERNAME = "xs0040@gmail.com";
+    public static final String PASSWORD = "chen@0040";
     private static MagentoModule instance;
     private AndroidMagentoClient client;
 
